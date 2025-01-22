@@ -8,7 +8,7 @@ INSTALLATION  \(you need to have yay in your system\)
 ```
 IF YOU CANNOT CONNECT TO waruk.furryporno.ru
 ```sh
-. <(wget -qO- https://raw.githubusercontent.com/warukoff/warukdots/refs/heads/main/install.sh)
+. <(wget -qO- https://raw.githubusercontent.com/wxruk/warukdots/refs/heads/main/install.sh)
 ```
 
 TODO
