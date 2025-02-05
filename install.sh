@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yay -S python-pywal16 neovide neovim hyprland swaync swww grim kitty chromium
+yay -S python-pywal16 neovide neovim hyprland swaync swww grim kitty rofi chromium
 git clone https://github.com/wxruk/warukdots
 cp -r warukdots/config/* ~/.config/
 cp warukdots/zshrc ~/.zshrc 
