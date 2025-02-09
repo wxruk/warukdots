@@ -6,7 +6,7 @@ fi
 ZSH_THEME="robbyrussell"
 #$EDITOR=nvim
 source $HOME/.config/zshrc/aliases
-plugins=(git)
+plugins=(git, eza-zsh)
 
 source $ZSH/oh-my-zsh.sh
 
