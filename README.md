@@ -27,3 +27,4 @@ TODO
 
 thanks to:
 https://github.com/uZer/pywal16.nvim for pywal neovim colors
+https://github.com/MohamedElashri/eza-zsh for eza-zsh plugin
