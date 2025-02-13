@@ -1,6 +1,6 @@
 waruk hyprland dots
 
-![screenshot](https://github.com/wxruk/warukdots/blob/main/screenshots/readmescreenshot.png)
+![screenshot](https://github.com/wxruk/warukdots/blob/main/screenshots/screenshot.jpg)
 
 INSTALLATION  \(you need to have yay in your system\)
 ```sh
