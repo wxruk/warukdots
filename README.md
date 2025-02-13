@@ -13,17 +13,11 @@ IF YOU CANNOT CONNECT TO waruk.furryporno.ru
 
 TODO
 
-~1. upload dots~
+1. rofi config
 
-~2. pywal color scheme for borders~
+2. gtk and qt pywal 
 
-3. rofi config
-
-4. bar
-
-~5. install script~ kinda 
-
-6. fix swaync and neovide pywal colors
+3. autoinstall pywalfox
 
 thanks to:
 https://github.com/uZer/pywal16.nvim for pywal neovim colors

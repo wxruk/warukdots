@@ -23,9 +23,9 @@ install_fedora() {
 install_arch() {
     echo "Arch (based) distro found"
     if command -v yay > /dev/null 2>&1; then
-        yay -S python-pywal16 neovim hyprland swaync swww grim kitty rofi chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
+        yay -S python-pywal16 neovim hyprland zsh waybar python-pip swaync swww grim kitty rofi chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
     elif command -v paru > /dev/null 2>&1; then
-        paru -S python-pywal16 neovim hyprland swaync swww grim kitty rofi chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
+        paru -S python-pywal16 neovim hyprland zsh waybar python-pip swaync swww grim kitty rofi chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
     else
         echo "No AUR helper found, installing yay"
         if ! command -v git > /dev/null 2>&1 || ! command -v makepkg > /dev/null 2>&1; then
@@ -35,7 +35,7 @@ install_arch() {
         cd yay
         makepkg -si --noconfirm
         cd ..
-        yay -S python-pywal16 neovim hyprland swaync swww grim kitty rofi chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
+        yay -S python-pywal16 neovim hyprland zsh waybar python-pip swaync swww grim kitty rofi chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
     fi
 }
 
@@ -48,7 +48,7 @@ elif command -v apt > /dev/null 2>&1; then
 	echo "hyprland is unstable on debian-based, so i do not recommend using hyprland on debian"
 	exit 1
 else
-    echo "Your distro is not supported."
+    echo "your distro is not supported."
     exit 1
 fi
 

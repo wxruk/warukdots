@@ -1,0 +1,141 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 31,
+    "modules-left": ["custom/launcher","hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio","pulseaudio#microphone","bluetooth","network", "battery", "tray", "custom/swaync"],
+    "hyprland/window": {
+        "format": "{}"
+    },
+
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10
+    },
+
+    "custom/launcher": {
+        "format": "  ◉  ",
+        "on-click": "rofi -show drun || pkill rofi"
+    },
+
+    "clock": {
+        "format": "<span color='#bf616a'> </span>{:%H:%M <span color='#bf616a'> </span>%a %b %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 6
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {ic;9uon}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "network": {
+        //"interface": "", // (Optional) To force the use of this interface
+        "format-wifi": "  {essid} {signalStrength}%",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-disabled": "Disabled ❌",
+        "format-linked": "{ifname} (No IP) ",
+        "tooltip-format": "{essid} - {ifname} via {gwaddr} ",
+        "tooltip-format-disconnected": "Disconnected from network.",
+        "tooltip-format-disabled": "Network adapters has been disabled.",
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": " Muted",
+        "on-click": "pamixer -t",
+        "on-click-right": "pavucontrol -t 3",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "♪ {volume}%",
+        "format-source-muted": "♪ Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-click-right": "pavucontrol -t 4",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    },
+    
+    "temperature": {
+        "thermal-zone": 1,
+        "format": " {temperatureC}°C",
+        "critical-threshold": 75,
+        "format-critical": " {temperatureC}°C"
+    },
+
+    "bluetooth": {
+	"format": " {status}",
+	"format-disabled": " Disabled", // an empty format will hide the module
+	"format-connected": " {num_connections}",
+        "on-click": "blueberry",
+	"tooltip-format": "{device_alias}",
+	"tooltip-format-connected": " {device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}"
+    },
+
+    "cpu": {
+        "interval": 10,
+        "format": "󰍛   {usage}%",
+        "max-length": 10,
+        "on-click": "",
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": "󰍛  {}%",
+        "format-alt":"    {used:0.1f}G",
+        "max-length": 10,
+    },
+
+    "custom/swaync": {
+	    "format": "  ◉  ",
+	    "on-click": "swaync-client -op",
+    },
+
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "on-click": "activate",
+      "format-icons": {
+        "urgent": "•",
+        "active": "●",
+        "default": "•"
+      }
+    }
+}
