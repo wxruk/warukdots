@@ -13,11 +13,9 @@ IF YOU CANNOT CONNECT TO waruk.furryporno.ru
 
 TODO
 
-1. rofi config
+1. gtk and qt pywal 
 
-2. gtk and qt pywal 
-
-3. autoinstall pywalfox
+2. autoinstall pywalfox
 
 thanks to:
 https://github.com/uZer/pywal16.nvim for pywal neovim colors
