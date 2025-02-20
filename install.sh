@@ -17,6 +17,7 @@ install_fedora() {
 	echo "Fedora (based) distro found"
 	echo "i can't test fedora yet"
 	#$su dnf install python-pywal16 neovim hyprland swaync swww grim kitty rofi chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland -y
+	#pip install --user pywal16 --break-system-packages
 }
 
 # function to install packages on Arch 
@@ -58,7 +59,8 @@ cp -r warukdots/config/* ~/.config/
 if [ -d ~/.oh-my-zsh ]; then
 	rm -rf ~/.oh-my-zsh
 fi
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+chmod +x ~/.cache/warukdots/omzinstall.sh
+sh -c "./~/.cache/warukdots/omzinstall.sh"
 cp warukdots/zshrc ~/.zshrc 
 cp -r warukdots/eza-zsh ~/.oh-my-zsh/plugins/eza-zsh
 chmod +x ~/.config/hypr/wallpaper.sh
