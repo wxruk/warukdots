@@ -64,7 +64,6 @@ sh -c "./~/.cache/warukdots/omzinstall.sh"
 cp warukdots/zshrc ~/.zshrc 
 cp -r warukdots/eza-zsh ~/.oh-my-zsh/plugins/eza-zsh
 chmod +x ~/.config/hypr/wallpaper.sh
-bash ~/.config/hypr/wallpaper.sh
 chmod +x ~/.config/hypr/autostart.sh
 chmod +x ~/.config/hypr/xdph.sh
 chsh $USER -s /usr/bin/zsh
