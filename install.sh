@@ -15,7 +15,8 @@ fi
 # function to install packages on Fedora
 install_fedora() {
 	echo "Fedora (based) distro found"
-	echo "i can't test fedora yet"
+	echo "i can't test fedora yet, so no support for it"
+    exit 0
 	#$su dnf install python-pywal16 neovim hyprland swaync swww grim kitty rofi chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland -y
 	#pip install --user pywal16 --break-system-packages
 }
@@ -24,9 +25,9 @@ install_fedora() {
 install_arch() {
     echo "Arch (based) distro found"
     if command -v yay > /dev/null 2>&1; then
-        yay -S python-pywal16 neovim hyprland zsh waybar python-pip swaync swww grim kitty rofi chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
+        yay -S python-pywal16 neovim hyprland zsh waybar python-pip swaync swww grim kitty rofi-wayland chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
     elif command -v paru > /dev/null 2>&1; then
-        paru -S python-pywal16 neovim hyprland zsh waybar python-pip swaync swww grim kitty rofi chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
+        paru -S python-pywal16 neovim hyprland zsh waybar python-pip swaync swww grim kitty rofi-wayland chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
     else
         echo "No AUR helper found, installing yay"
         if ! command -v git > /dev/null 2>&1 || ! command -v makepkg > /dev/null 2>&1; then
@@ -36,7 +37,7 @@ install_arch() {
         cd yay
         makepkg -si --noconfirm
         cd ..
-        yay -S python-pywal16 neovim hyprland zsh waybar python-pip swaync swww grim kitty rofi chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
+        yay -S python-pywal16 neovim hyprland zsh waybar python-pip swaync swww grim kitty rofi-wayland chromium eza hyprlock ttf-jetbrainsmono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
     fi
 }
 
@@ -47,7 +48,7 @@ elif command -v pacman > /dev/null 2>&1; then
     install_arch
 elif command -v apt > /dev/null 2>&1; then
 	echo "hyprland is unstable on debian-based, so i do not recommend using hyprland on debian"
-	exit 1
+	exit 0
 else
     echo "your distro is not supported."
     exit 1
