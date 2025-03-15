@@ -5,10 +5,6 @@ waruk hyprland dots
 INSTALLATION \(choose one that work for you\)
 
 ```sh
- . <(wget -qO- https://waruk.furryporno.ru/dots)
-```
-
-```sh
  . <(wget -qO- https://waruk.furry34.ru/dots)
 ```
 

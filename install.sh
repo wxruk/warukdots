@@ -41,7 +41,7 @@ install_arch() {
     fi
 }
 
-# determine the distribution
+# determine the distro
 if command -v dnf > /dev/null 2>&1; then
     install_fedora
 elif command -v pacman > /dev/null 2>&1; then
