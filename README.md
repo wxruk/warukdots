@@ -1,3 +1,4 @@
+Currently updating. Stay tuned
 waruk hyprland dots
 
 ![screenshot](https://github.com/wxruk/warukdots/blob/main/screenshots/screenshot.jpg)
