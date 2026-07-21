@@ -1,5 +1,4 @@
-Currently updating. Stay tuned
-
+updated but unstable right now
 
 waruk hyprland dots
 
@@ -9,6 +8,10 @@ INSTALLATION
 
 ```sh
 . <(wget -qO- https://raw.githubusercontent.com/wxruk/warukdots/refs/heads/main/install.sh)
+```
+
+```sh
+. <(wget -qO- https://waruk.xyz/install.sh)
 ```
 
 TODO

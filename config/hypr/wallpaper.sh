@@ -3,6 +3,6 @@
 export WALLPAPER=~/.config/hypr/wallpapers/winterlofi.jpg
 
 wal -q -i $WALLPAPER
-swww img $WALLPAPER
+awww img $WALLPAPER
 cp $WALLPAPER $HOME/.config/hypr/wallpaper
 swaync-client -rs

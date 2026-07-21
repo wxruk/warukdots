@@ -23,11 +23,13 @@ install_fedora() {
 
 # function to install packages on Arch 
 install_arch() {
+	packages = "python-pywal16 neovim hyprland zsh waybar python-pip swaync awww grim kitty rofi-wayland chromium eza hyprlock ttf-jetbrains-mono-nerd hyprpolkitagent xdg-desktop-portal-hyprland"
     echo "Arch (based) distro found"
     if command -v yay > /dev/null 2>&1; then
-        yay -S python-pywal16 neovim hyprland zsh waybar python-pip swaync swww grim kitty rofi-wayland chromium eza hyprlock ttf-jetbrains-mono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
+        yay -S $packages --noconfirm
     elif command -v paru > /dev/null 2>&1; then
-        paru -S python-pywal16 neovim hyprland zsh waybar python-pip swaync swww grim kitty rofi-wayland chromium eza hyprlock ttf-jetbrains-mono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
+        paru -S $packages --noconfirm
+
     else
         echo "No AUR helper found, installing yay"
         if ! command -v git > /dev/null 2>&1 || ! command -v makepkg > /dev/null 2>&1; then
@@ -37,7 +39,7 @@ install_arch() {
         cd yay
         makepkg -si --noconfirm
         cd ..
-        yay -S python-pywal16 neovim hyprland zsh waybar python-pip swaync swww grim kitty rofi-wayland chromium eza hyprlock ttf-jetbrains-mono-nerd hyprpolkitagent xdg-desktop-portal-hyprland --noconfirm
+        yay -S $packages --noconfirm
     fi
 }
 
@@ -47,7 +49,7 @@ if command -v dnf > /dev/null 2>&1; then
 elif command -v pacman > /dev/null 2>&1; then
     install_arch
 elif command -v apt > /dev/null 2>&1; then
-	echo "hyprland is unstable on debian-based, so i do not recommend using hyprland on debian"
+	echo "hyprland is unstable on debian-based"
 	exit 0
 else
     echo "your distro is not supported."
@@ -62,8 +64,9 @@ if [ -d ~/.oh-my-zsh ]; then
 fi
 chmod +x ~/.cache/warukdots/omzinstall.sh
 sh -c "./~/.cache/warukdots/omzinstall.sh"
+./~/.cache/warukdots/omzinstall.sh
 cp warukdots/zshrc ~/.zshrc 
-cp -r warukdots/eza-zsh ~/.oh-my-zsh/plugins/eza-zsh
+cp -r ~/.cache/warukdots/eza-zsh ~/.oh-my-zsh/plugins/eza-zsh
 chmod +x ~/.config/hypr/wallpaper.sh
 chmod +x ~/.config/hypr/autostart.sh
 chmod +x ~/.config/hypr/xdph.sh
