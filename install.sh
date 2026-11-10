@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cd ~/.cache/
+mkdir -p "$HOME/.cache" "$HOME/.config" || exit 1
+cd "$HOME/.cache" || exit 1
 
 # determine the appropriate privilege escalation command
 if command -v sudo > /dev/null 2>&1; then
@@ -23,12 +24,13 @@ install_fedora() {
 
 # function to install packages on Arch 
 install_arch() {
-	packages = "python-pywal16 neovim hyprland zsh waybar python-pip swaync awww grim kitty rofi-wayland chromium eza hyprlock ttf-jetbrains-mono-nerd hyprpolkitagent xdg-desktop-portal-hyprland"
+	local packages=(python-pywal16 neovim hyprland zsh waybar python-pip swaync awww grim kitty rofi-wayland chromium eza hyprlock ttf-jetbrains-mono-nerd hyprpolkitagent xdg-desktop-portal-hyprland
+        git curl firefox nautilus wl-clipboard playerctl brightnessctl fastfetch pamixer pavucontrol blueberry wireplumber)
     echo "Arch (based) distro found"
     if command -v yay > /dev/null 2>&1; then
-        yay -S $packages --noconfirm
+        yay -S "${packages[@]}" --noconfirm || exit 1
     elif command -v paru > /dev/null 2>&1; then
-        paru -S $packages --noconfirm
+        paru -S "${packages[@]}" --noconfirm || exit 1
 
     else
         echo "No AUR helper found, installing yay"
@@ -39,7 +41,7 @@ install_arch() {
         cd yay
         makepkg -si --noconfirm
         cd ..
-        yay -S $packages --noconfirm
+        yay -S "${packages[@]}" --noconfirm || exit 1
     fi
 }
 
@@ -49,7 +51,7 @@ if command -v dnf > /dev/null 2>&1; then
 elif command -v pacman > /dev/null 2>&1; then
     install_arch
 elif command -v apt > /dev/null 2>&1; then
-	echo "hyprland is unstable on debian-based"
+	echo "hyprland is unstable on debian-based and this dots is not supported on debian-based"
 	exit 0
 else
     echo "your distro is not supported."
@@ -57,16 +59,15 @@ else
 fi
 
 # clone and set up dotfiles
-git clone https://github.com/wxruk/warukdots
+git clone https://github.com/wxruk/warukdots || exit 1
 cp -r warukdots/config/* ~/.config/
-if [ -d ~/.oh-my-zsh ]; then
-	rm -rf ~/.oh-my-zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    omz_installer=$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) || exit 1
+    ZSH="$HOME/.oh-my-zsh" sh -c "$omz_installer" "" --unattended --keep-zshrc || exit 1
 fi
-chmod +x ~/.cache/warukdots/omzinstall.sh
-sh -c "./~/.cache/warukdots/omzinstall.sh"
-./~/.cache/warukdots/omzinstall.sh
 cp warukdots/zshrc ~/.zshrc 
-cp -r ~/.cache/warukdots/eza-zsh ~/.oh-my-zsh/plugins/eza-zsh
+mkdir -p "$HOME/.oh-my-zsh/custom/plugins/eza-zsh" || exit 1
+cp -r warukdots/eza-zsh/. "$HOME/.oh-my-zsh/custom/plugins/eza-zsh/" || exit 1
 chmod +x ~/.config/hypr/wallpaper.sh
 chmod +x ~/.config/hypr/autostart.sh
 chmod +x ~/.config/hypr/xdph.sh

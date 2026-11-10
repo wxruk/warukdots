@@ -1,0 +1,16 @@
+hl.config({
+    input = {
+        kb_layout = "us", -- choose your keyboard layout here (for example - ru=russian, ua=ukranian)
+        kb_variant = "",
+        kb_model = "",
+        kb_options = "grp:alt_shift_toggle,grp:super_space_toggle", --that is needed for toggling kb layouts
+        kb_rules = "",
+        follow_mouse = 1,
+        sensitivity = -1.0,
+        touchpad = { natural_scroll = false },
+    },
+})
+
+--gestures {
+--    workspace_swipe = true
+--}
